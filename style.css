@@ -1,0 +1,25 @@
+.calc {
+    display: grid;
+    border: 2px solid black;
+    height: 500px;
+    width: 400px;
+    padding: 20px;
+}
+
+.display {
+    width: 70%;
+    border: 1px solid black;
+    height: 100px;
+}
+
+.numbers {
+    display: inline-grid;
+    margin: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.operators {
+    display: inline-grid;
+    margin: 10px;
+    grid-template-rows: repeat(3, 1fr);
+}
