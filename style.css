@@ -7,19 +7,37 @@
 }
 
 .display {
-    width: 70%;
+    box-sizing: border-box;
+    width: 350px;
     border: 1px solid black;
     height: 100px;
+    text-align: right;
+    padding: 20px;
 }
 
 .numbers {
+    grid-area: nums;
     display: inline-grid;
-    margin: 10px;
     grid-template-columns: repeat(3, 1fr);
-}
+} 
 
 .operators {
+    grid-area: ops;
     display: inline-grid;
-    margin: 10px;
-    grid-template-rows: repeat(3, 1fr);
 }
+
+.btns {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+        'nums nums nums . ops'
+        'nums nums nums . ops'
+        'nums nums nums . ops'
+        'nums nums nums . ops';
+}
+
+
+
+
+
