@@ -1,3 +1,17 @@
+//buttons
+const clear = document.querySelector('#clear');
+const equ = document.querySelector('#equals');
+
+const plus = document.querySelector('#plus');
+const minus = document.querySelector('#minus');
+const times = document.querySelector('#times');
+const div = document.querySelector('#div');
+
+const numbers = document.querySelectorAll('.numbers > .num');
+
+let display = document.querySelector('.display');
+
+
 //basic maths>>>
 function add(a, b) {
     return a + b;
@@ -34,3 +48,10 @@ function operate(n1, n2, operator) {
         divide(n1, n2);
     }
 }
+
+//display the value of a number button when it's clicked
+numbers.forEach(btn => {
+    btn.addEventListener('click', () => {
+        display.textContent = btn.textContent;
+    })
+})
