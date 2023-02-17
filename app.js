@@ -11,6 +11,9 @@ const numbers = document.querySelectorAll('.numbers > .num');
 
 let display = document.querySelector('.display');
 
+//problem line:
+let dispVal = document.querySelector('.display').textContent;
+
 
 //basic maths>>>
 function add(a, b) {
@@ -53,5 +56,7 @@ function operate(n1, n2, operator) {
 numbers.forEach(btn => {
     btn.addEventListener('click', () => {
         display.textContent = btn.textContent;
+        console.log(dispVal);
     })
 })
+
