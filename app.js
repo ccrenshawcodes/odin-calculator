@@ -38,22 +38,23 @@ function divide(a, b) {
 //'operate' function >>>
 function operate(n1, n2, operator) {
     if (operator === '+') {
-        display.textContent = add(n1, n2);
+        display.textContent = Math.round(add(n1, n2) * 100) / 100;
         val1 = add(n1, n2);
     }
     if (operator === '-') {
-        display.textContent = subtract(n1, n2);
+        display.textContent = Math.round(subtract(n1, n2) * 100) / 100;
         val1 = subtract(n1, n2);
     }
     if (operator === 'x') {
-        display.textContent = multiply(n1, n2);
+        display.textContent = Math.round(multiply(n1, n2) * 100) / 100;
         val1 = multiply(n1, n2);
     }
+
     if (operator === '÷') {
         if (n2 === 0) {
             display.textContent = 'why are you trying to break my code';
         } else if (n2 !== 0) {
-            display.textContent = divide(n1, n2);
+            display.textContent = Math.round(divide(n1, n2) * 100) / 100;
             val1 = divide(n1, n2);
         }
         
@@ -63,30 +64,31 @@ function operate(n1, n2, operator) {
 
 
 //get & display number vals
-
-
 numbers.forEach(btn => {
     btn.addEventListener('click', () => {
-        if (val1 && !val2) {
-            val2 += btn.textContent;
-            display.textContent = val2;
-            //console.log(`second: ${val2}`);
-        } else {
+        if (ops) {
+            if (val1) {
+                val2 += btn.textContent;
+                display.textContent = val2;
+            } else if (!val1) {
+                val1 += btn.textContent;
+                display.textContent = val1;
+                ops = '';
+            }
+        } else if (!ops) {
             val1 += btn.textContent;
             display.textContent = val1;
-            //console.log(`first: ${val1}`);
         }
     })
 })
 
-
+//operate OR update 'ops' when an operator button is clicked
 next.forEach(btn => {
     btn.addEventListener('click', () => {
         
         if (val1 && val2 && ops) {
             operate(Number(val1), Number(val2), ops); 
             val2 = '';
-            console.log(`When btn was clicked just now: val1: ${val1}. Val2: ${val2}. ops: ${ops}`);
         }
         ops = btn.textContent;
     })
