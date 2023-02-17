@@ -8,11 +8,17 @@ const times = document.querySelector('#times');
 const div = document.querySelector('#div');
 
 const numbers = document.querySelectorAll('.numbers > .num');
+const operators = document.querySelectorAll('.operators > .ops');
+
+const allBtns = document.querySelectorAll('.btns');
 
 let display = document.querySelector('.display');
 
-//problem line:
-let dispVal = document.querySelector('.display').textContent;
+const calcValues = {
+    val1: '',
+    val2: '',
+    ops: '',
+}
 
 
 //basic maths>>>
@@ -38,25 +44,50 @@ function divide(a, b) {
 
 //'operate' function >>>
 function operate(n1, n2, operator) {
-    if (operator === 'plus') {
-        add(n1, n2);
+    if (operator === '+') {
+        display.textContent = add(n1, n2);
     }
-    if (operator === 'minus') {
-        subtract(n1, n2);
+    if (operator === '-') {
+        display.textContent = subtract(n1, n2);
     }
-    if (operator === 'times') {
-        multiply(n1, n2);
+    if (operator === 'x') {
+        display.textContent = multiply(n1, n2);
     }
-    if (operator === 'div') {
-        divide(n1, n2);
+    if (operator === '÷') {
+        display.textContent = divide(n1, n2);
     }
 }
 
-//display the value of a number button when it's clicked
+
+//get & display number vals
 numbers.forEach(btn => {
     btn.addEventListener('click', () => {
-        display.textContent = btn.textContent;
-        console.log(dispVal);
+        if (!calcValues.ops) {
+            calcValues.val1 += btn.textContent;
+            display.textContent = calcValues.val1;
+        } else if (calcValues.val1 && calcValues.ops) {
+            calcValues.val2 += btn.textContent;
+            display.textContent = calcValues.val2;
+        }
     })
 })
 
+//get operator
+operators.forEach(btn => {
+    btn.addEventListener('click', () => {
+        calcValues.ops = btn.textContent;
+    })
+})
+
+//perform operate with the correct vals
+equ.addEventListener('click', () => {
+    operate(Number(calcValues.val1), Number(calcValues.val2), calcValues.ops);
+})
+
+//clear all
+clear.addEventListener('click', () => {
+    calcValues.val1 = '';
+    calcValues.val2 = '';
+    calcValues.ops = '';
+    display.textContent = '';
+})
