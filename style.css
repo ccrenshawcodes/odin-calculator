@@ -1,19 +1,34 @@
+body {
+    background-color: black;
+}
+
+.num, .equals, .ops {
+    background-color: orange;
+}
+
+#clear {
+    background-color: rgb(93, 222, 162);
+}
+
 .calc {
     display: grid;
-    border: 2px solid black;
-    height: 500px;
-    width: 400px;
+    border: 3px solid rgb(93, 222, 162);
+    min-height: 500px;
+    max-width: 400px;
     padding: 20px;
+    margin: auto;
 }
 
 .display {
     display: flex;
+    flex: 1;
     justify-content: right;
     align-items: center;
     padding: 15px;
-    border: 1px solid black;
+    border: 3px solid orange;
     margin-bottom: 30px;
     font-size: 100px;
+    color:rgb(93, 222, 162);
 }
 
 .numbers {
@@ -37,8 +52,6 @@
         'nums nums nums . ops'
         'nums nums nums . ops';
 }
-
-
 
 
 
