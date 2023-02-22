@@ -1,18 +1,26 @@
 body {
     background-color: black;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .num {
     background-color: orange;
 }
 
-#clear, .ops, .equals {
+#clear, .equals {
     background-color: rgb(93, 222, 162);
+}
+
+.ops {
+    background-color: rgb(67, 161, 117);
 }
 
 .num, #clear, .equals, .ops {
     border-radius: 60px;
     border: 1px solid black;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: larger;
 }
 
 .calc {
