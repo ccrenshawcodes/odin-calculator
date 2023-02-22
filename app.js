@@ -99,5 +99,5 @@ clear.addEventListener('click', () => {
     val1 = '';
     val2 = '';
     ops = '';
-    display.textContent = '';
+    display.textContent = '0';
 })
