@@ -4,15 +4,27 @@ body {
 }
 
 .num {
-    background-color: orange;
+    background-color: rgb(255, 165, 0);
+}
+
+.num:active {
+    background-color: rgb(247, 200, 27);
 }
 
 #clear, .equals {
     background-color: rgb(93, 222, 162);
 }
 
+#clear:active, .equals:active {
+    background-color: rgb(72, 171, 125);
+}
+
 .ops {
     background-color: rgb(67, 161, 117);
+}
+
+.ops:active {
+    background-color: rgb(93, 222, 162);
 }
 
 .num, #clear, .equals, .ops {
