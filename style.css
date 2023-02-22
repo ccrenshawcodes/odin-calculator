@@ -2,18 +2,23 @@ body {
     background-color: black;
 }
 
-.num, .equals, .ops {
+.num {
     background-color: orange;
 }
 
-#clear {
+#clear, .ops, .equals {
     background-color: rgb(93, 222, 162);
+}
+
+.num, #clear, .equals, .ops {
+    border-radius: 60px;
+    border: 1px solid black;
 }
 
 .calc {
     display: grid;
     border: 3px solid rgb(93, 222, 162);
-    min-height: 500px;
+    min-height: 450px;
     max-width: 400px;
     padding: 20px;
     margin: auto;
@@ -25,10 +30,11 @@ body {
     justify-content: right;
     align-items: center;
     padding: 15px;
+    margin-bottom: 20px;
     border: 3px solid orange;
-    margin-bottom: 30px;
-    font-size: 100px;
+    font-size: 50px;
     color:rgb(93, 222, 162);
+    height: 80px;
 }
 
 .numbers {
@@ -44,13 +50,14 @@ body {
 
 .btns {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    height: 300px;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     grid-template-areas: 
-        'nums nums nums . ops'
-        'nums nums nums . ops'
-        'nums nums nums . ops'
-        'nums nums nums . ops';
+        'nums nums nums ops'
+        'nums nums nums ops'
+        'nums nums nums ops'
+        'nums nums nums ops';
 }
 
 
