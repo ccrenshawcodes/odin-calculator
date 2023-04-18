@@ -45,6 +45,7 @@ const calculator = (() => {
 
 //'operate' function >>>
 function operate(n1, n2, operator) {
+    display.style.cssText = 'font-size: 50px;';
     if (operator === '+') {
         display.textContent = Math.round(calculator.add(n1, n2) * 100) / 100;
         val1 = calculator.add(n1, n2);
@@ -61,6 +62,10 @@ function operate(n1, n2, operator) {
     if (operator === '÷') {
         if (n2 === 0) {
             display.textContent = 'why are you trying to break my code';
+            display.style.cssText = 'font-size: small;';
+            val1 = '';
+            val2 = '';
+            ops = '';
         } else if (n2 !== 0) {
             display.textContent = Math.round(calculator.divide(n1, n2) * 100) / 100;
             val1 = calculator.divide(n1, n2);
@@ -74,6 +79,7 @@ function operate(n1, n2, operator) {
 //get & display number vals
 numbers.forEach(btn => {
     btn.addEventListener('click', () => {
+        display.style.cssText = 'font-size: 50px;';
         if (ops) {
             if (val1) {
                 val2 += btn.textContent;
@@ -104,6 +110,7 @@ next.forEach(btn => {
 
 //clear all
 clear.addEventListener('click', () => {
+    display.style.cssText = 'font-size: 50px;';
     val1 = '';
     val2 = '';
     ops = '';
