@@ -18,44 +18,52 @@ let val2 = calcValues.val2;
 let ops = calcValues.ops;
 
 //basic maths>>>
-function add(a, b) {
-    return a + b;
-}
+const calculator = (() => {
+    const add = (a, b) => {
+        return a + b;
+    }
+    const subtract = (a, b) => {
+        return a - b;
+    }
 
-function subtract(a, b) {
-    return a - b;
-}
+    const multiply = (a, b) => {
+        return a * b;
+    }
 
-function multiply(a, b) {
-    return a * b;
-}
+    const divide = (a, b) => {
+        return a / b;
+    }
 
-function divide(a, b) {
-    return a / b;
-}
+    return {
+        add,
+        subtract,
+        multiply,
+        divide
+    }
+})();
 
 
 //'operate' function >>>
 function operate(n1, n2, operator) {
     if (operator === '+') {
-        display.textContent = Math.round(add(n1, n2) * 100) / 100;
-        val1 = add(n1, n2);
+        display.textContent = Math.round(calculator.add(n1, n2) * 100) / 100;
+        val1 = calculator.add(n1, n2);
     }
     if (operator === '-') {
-        display.textContent = Math.round(subtract(n1, n2) * 100) / 100;
-        val1 = subtract(n1, n2);
+        display.textContent = Math.round(calculator.subtract(n1, n2) * 100) / 100;
+        val1 = calculator.subtract(n1, n2);
     }
     if (operator === 'x') {
-        display.textContent = Math.round(multiply(n1, n2) * 100) / 100;
-        val1 = multiply(n1, n2);
+        display.textContent = Math.round(calculator.multiply(n1, n2) * 100) / 100;
+        val1 = calculator.multiply(n1, n2);
     }
 
     if (operator === '÷') {
         if (n2 === 0) {
             display.textContent = 'why are you trying to break my code';
         } else if (n2 !== 0) {
-            display.textContent = Math.round(divide(n1, n2) * 100) / 100;
-            val1 = divide(n1, n2);
+            display.textContent = Math.round(calculator.divide(n1, n2) * 100) / 100;
+            val1 = calculator.divide(n1, n2);
         }
         
     }
